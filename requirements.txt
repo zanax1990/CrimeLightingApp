@@ -1,0 +1,14 @@
+📦 Requirements
+pandas        # 📊 Data loading & manipulation (CSV + Excel)
+matplotlib    # 📈 Plotting & visualization
+tk            # 🖼️ Tkinter GUI toolkit
+openpyxl      # 📘 Excel (.xlsx) reader engine
+numpy         # 🔢 Optional but recommended for numerical operations
+
+
+Or the minimal version without NumPy:
+
+pandas        # 📊 Load CSV/Excel files
+matplotlib    # 📉 Create bar charts
+tk            # 🪟 GUI support
+openpyxl      # 📘 Excel file support
