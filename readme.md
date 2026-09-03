@@ -1,23 +1,49 @@
 # Crime and Street Lighting Analysis App
 
-This project is a desktop application built with Python and Tkinter that helps users analyze how street lighting affects crime rates. The app allows manual data entry or uploading CSV/Excel files, then visualizes before and after crime levels for different dates and locations.
+A small Tkinter desktop application for entering or importing before-and-after crime counts and comparing them across dates and locations.
 
 ## Features
 
-- Manual data entry mode
-- CSV or Excel upload mode
-- Bar charts for **before vs after** crime counts
-- Multi-day and multi-location comparison
-- Saves your entries to a local CSV file (`crime_data.csv`) on your machine
-- Built with pure Python, Tkinter, Matplotlib, and Pandas
+- manual data entry;
+- CSV and Excel import;
+- before-and-after bar charts;
+- comparison across dates and locations;
+- local CSV export.
 
-> Note: No dataset is included in this repository. The file `crime_data.csv` is created locally when you save records in the app and is not tracked in version control.
+## Input format
+
+Imported files must contain:
+
+| Column | Required | Description |
+|---|---:|---|
+| `date` | Yes | Observation date |
+| `time` | No | Optional observation time |
+| `location` | Yes | Location label |
+| `before` | Yes | Crime count before lighting |
+| `after` | Yes | Crime count after lighting |
+
+No dataset is included. Records entered manually can be saved to `crime_data.csv`, which is ignored by Git.
 
 ## Installation
 
-Make sure you have Python 3.8+ installed.
+```bash
+git clone https://github.com/zanax1990/CrimeLightingApp.git
+cd CrimeLightingApp
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 
-Install dependencies:
+On Windows, activate the environment with `.venv\Scripts\activate`.
+
+Tkinter is part of the standard Python installation on Windows and macOS. Some Linux distributions require the separate `python3-tk` system package.
+
+## Run
 
 ```bash
-pip install -r requirements.txt
+python app.py
+```
+
+## Limitations
+
+The application visualizes supplied counts; it does not estimate the causal effect of street lighting on crime. It does not validate date formats or control for location, exposure time, reporting changes, or other confounders. Percent reduction is undefined when a supplied `before` count is zero.
